@@ -75,14 +75,16 @@ window.onscroll = function (event) {
 };
 
 function startLazyLoader() {
-	jQuery("img.lazy").lazyload({
-    effect : "fadeIn"
-});
-	if(jQuery('#featuredSticky').length) {
-		jQuery("img.lazy").lazyload({
-			 container: jQuery("#featuredSticky")
-		});
-	}
+   echo.init({
+        offset: 100,
+        throttle: 250,
+        callback: function(e) { 
+            e.classList.add('fade-in'); 
+        }
+    });
+}
+function refreshLazyLoader() {
+   echo.render();
 }
 
 // Ajax load
@@ -234,7 +236,7 @@ function infiniteScroll() {
                 console.log('Loaded page ' + pageNumber);
                 pageNumber++;
                 processingAjax = false;
-                startLazyLoader();
+                refreshLazyLoader();
                 startPjax();
                 pageProgressing = false;
             }  
@@ -436,7 +438,7 @@ function reset() {
     } else {
         mobileResize();
     }
-    startLazyLoader();
+    refreshLazyLoader();
     pageProgressing = false;
 }
 

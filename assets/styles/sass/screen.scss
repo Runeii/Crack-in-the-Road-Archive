@@ -511,11 +511,13 @@ p {
 			&:hover {
 				opacity:0;
 			}
-			-webkit-transition:all 0.25s ease-in;
-			-ms-transition:all 0.25s ease-in;
-			-moz-transition:all 0.25s ease-in;
-			-o-transition:all 0.25s ease-in;
-			transition:all 0.25s ease-in;
+			&:not(.lazy) {
+				-webkit-transition:all 0.25s ease-in;
+				-ms-transition:all 0.25s ease-in;
+				-moz-transition:all 0.25s ease-in;
+				-o-transition:all 0.25s ease-in;
+				transition:all 0.25s ease-in;
+			}
 		}
 		h4 {
 			display: inline-block;
@@ -1303,6 +1305,19 @@ body.single #content.offset {
 		display:none;
 	}
 }
+
+img.lazy {
+	-webkit-transition: 0.6s opacity ease-in;
+	-moz-transition: 0.6s opacity ease-in;
+	-ms-transition: 0.6s opacity ease-in;
+	transition: 0.6s opacity ease-in;
+	opacity:0;
+	&.fade-in {
+		opacity:1;
+	}
+}
+
+
 // All the stuff used for Ajax, hide it (but do NOT use display:none)
 .invisibleMeta, #permalink, body.home #disqus_thread, .js .pagination, #ajaxRef {
 	visibility:hidden;
