@@ -1,7 +1,7 @@
 <?php get_header(); ?>
-<section class="music main">
+<section class="new main">
 	<?php $i=0; 
-		$args = array( 'numberposts' => 20,'category' => 301 );
+		$args = array( 'numberposts' => 20,'category' => 2269 );
 	    $music = get_posts( $args ); 
 	    $idtally = array();
 	    foreach($music as $entry) {
@@ -26,8 +26,8 @@
 				</a><!--
 			--><div class="subhentry hentry options">
 				<div class="table-box"><div class="table-cell">
-				<h3>Music</h3>
-				<a href="<?php echo home_url() ?>/?cat=301">More</a>
+				<h3>New</h3>
+				<a href="<?php echo home_url() ?>/?cat=2269">More</a>
 				</div></div>
 			</div>
 			</div>
@@ -119,9 +119,9 @@
 				</div>
 			</a>
 		<?php 	} ?>
-	</section><section class="art main">
+	</section><section class="introducing main">
 		<?php $i=0; 
-		$args = array( 'numberposts' => 20,'category' => 304 );
+		$args = array( 'numberposts' => 20,'category' => 2215 );
 	    $art = get_posts( $args ); 
 	    foreach($art as $entry) {
 	    	$idtally[] = $entry->ID;
@@ -185,8 +185,8 @@
 				</a><!--
 			--><div class="subhentry hentry options">
 				<div class="table-box"><div class="table-cell">
-				<h3>Art</h3>
-				<a href="<?php echo home_url() ?>/?cat=304">More</a>
+				<h3>Introducing</h3>
+				<a href="<?php echo home_url() ?>/?cat=2215">More</a>
 				</div></div>
 				</div>
 				</div>
@@ -238,38 +238,41 @@
 				</div>
 			</a>
 		<?php 	} ?>
-	</section><section class="introducing main">
+	</section><section class="hot main">
 		<?php $i=0; 
-		$args = array( 'numberposts' => 20,'category' => 2215 );
-	    $intro = get_posts( $args );
-	    foreach($intro as $entry) {
-	    	$idtally[] = $entry->ID;
-	    	if($i == 5) { break; };
-	    	$i++;
-	    };
-	    ?>
+			$popular = array();
+			$top_posts = get_option('ga_popular_posts');
+				foreach($top_posts as $populartemp) {
+					$popular[$i] = new StdClass;
+					$popular[$i]->ID = $populartemp[1];
+					$popular[$i]->post_title = get_the_title($populartemp[1]);
+					$i++;
+					if($i == 10) break;
+				}
+				
+				?>
 			<div class="hentry column"><!--
-			--><a href="<?php echo get_permalink( $intro['1']->ID ); ?>"><div class="subhentry hentry">
-					<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $intro['1']->ID ), 'home-small' ); ?>
+			--><a href="<?php echo get_permalink( $popular['1']->ID ); ?>"><div class="subhentry hentry">
+					<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $popular['1']->ID ), 'home-small' ); ?>
 					<img class="lazy-load" data-src="<?php echo $image[0]; ?>" data-thumb="<?php echo $image[0]; ?>" src="http://www.crackintheroad.com/wp-content/themes/CITRForever/assets/img/blank.png" />
 					<div class="table-box"><div class="table-cell">
-					<?php if(strlen($intro['1']->post_title) >= 50) { 
-							echo '<h4 class="small">' . $intro['1']->post_title . '</h4>'; 
+					<?php if(strlen($popular['1']->post_title) >= 50) { 
+							echo '<h4 class="small">' . $popular['1']->post_title . '</h4>'; 
 						} else { 
-							echo '<h4>' . $intro['1']->post_title . '</h4>'; 
+							echo '<h4>' . $popular['1']->post_title . '</h4>'; 
 						} 
 						?>
 					</div></div>
 				</div>
 				</a><!--
-			--><a href="<?php echo get_permalink( $intro['2']->ID ); ?>"><div class="subhentry hentry">
-					<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $intro['2']->ID ), 'home-small' ); ?>
+			--><a href="<?php echo get_permalink( $popular['2']->ID ); ?>"><div class="subhentry hentry">
+					<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $popular['2']->ID ), 'home-small' ); ?>
 					<img class="lazy-load" data-src="<?php echo $image[0]; ?>" data-thumb="<?php echo $image[0]; ?>" src="http://www.crackintheroad.com/wp-content/themes/CITRForever/assets/img/blank.png" />
 					<div class="table-box"><div class="table-cell">
-					<?php if(strlen($intro['2']->post_title) >= 50) { 
-							echo '<h4 class="small">' . $intro['2']->post_title . '</h4>'; 
+					<?php if(strlen($popular['2']->post_title) >= 50) { 
+							echo '<h4 class="small">' . $popular['2']->post_title . '</h4>'; 
 						} else { 
-							echo '<h4>' . $intro['2']->post_title . '</h4>'; 
+							echo '<h4>' . $popular['2']->post_title . '</h4>'; 
 						} 
 						?>
 					</div></div>
@@ -279,18 +282,17 @@
 		--><div class="hentry column header"><!--
 			--><div class="subhentry hentry options">
 				<div class="table-box"><div class="table-cell">
-					<h3>Introducing</h3>
-					<a href="<?php echo home_url() ?>/?cat=2215">More</a>
+					<h3>Popular today</h3>
 				</div></div>
 				</div><!--
-			--><a href="<?php echo get_permalink( $intro['3']->ID ); ?>"><div class="subhentry hentry">
-					<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $intro['3']->ID ), 'home-small' ); ?>
+			--><a href="<?php echo get_permalink( $popular['3']->ID ); ?>"><div class="subhentry hentry">
+					<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $popular['3']->ID ), 'home-small' ); ?>
 					<img class="lazy-load" data-src="<?php echo $image[0]; ?>" data-thumb="<?php echo $image[0]; ?>" src="http://www.crackintheroad.com/wp-content/themes/CITRForever/assets/img/blank.png" />
 					<div class="table-box"><div class="table-cell">
-					<?php if(strlen($intro['3']->post_title) >= 50) { 
-							echo '<h4 class="small">' . $intro['3']->post_title . '</h4>'; 
+					<?php if(strlen($popular['3']->post_title) >= 50) { 
+							echo '<h4 class="small">' . $popular['3']->post_title . '</h4>'; 
 						} else { 
-							echo '<h4>' . $intro['3']->post_title . '</h4>'; 
+							echo '<h4>' . $popular['3']->post_title . '</h4>'; 
 						} 
 						?>
 					</div>
@@ -298,47 +300,47 @@
 				</div>
 				</a>
 			</div><!--
-	--><a href="<?php echo get_permalink( $intro['0']->ID ); ?>"><div class="hentry wide tall">
-		<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $intro['0']->ID ), 'home-large' ); ?>
+	--><a href="<?php echo get_permalink( $popular['0']->ID ); ?>"><div class="hentry wide tall">
+		<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $popular['0']->ID ), 'home-large' ); ?>
 			<img class="lazy-load" data-src="<?php echo $image[0]; ?>" data-thumb="<?php echo $image[0]; ?>" src="http://www.crackintheroad.com/wp-content/themes/CITRForever/assets/img/blank.png" />
 			<div class="table-box"><div class="table-cell">
-					<?php if(strlen($intro['0']->post_title) >= 50) { 
-							echo '<h4 class="small">' . $intro['0']->post_title . '</h4>'; 
+					<?php if(strlen($popular['0']->post_title) >= 50) { 
+							echo '<h4 class="small">' . $popular['0']->post_title . '</h4>'; 
 						} else { 
-							echo '<h4>' . $intro['0']->post_title . '</h4>'; 
+							echo '<h4>' . $popular['0']->post_title . '</h4>'; 
 						} 
 						?>
 			</div></div>
 		</div></a><!--
 		--><div class="hentry column smallscreen"><!--
-			--><a href="<?php echo get_permalink( $intro['4']->ID ); ?>"><div class="subhentry hentry">
-					<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $intro['4']->ID ), 'home-small' ); ?>
+			--><a href="<?php echo get_permalink( $popular['4']->ID ); ?>"><div class="subhentry hentry">
+					<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $popular['4']->ID ), 'home-small' ); ?>
 					<img class="lazy-load" data-src="<?php echo $image[0]; ?>" data-thumb="<?php echo $image[0]; ?>" src="http://www.crackintheroad.com/wp-content/themes/CITRForever/assets/img/blank.png" />
 					<div class="table-box"><div class="table-cell">
-					<?php if(strlen($intro['4']->post_title) >= 50) { 
-							echo '<h4 class="small">' . $intro['4']->post_title . '</h4>'; 
+					<?php if(strlen($popular['4']->post_title) >= 50) { 
+							echo '<h4 class="small">' . $popular['4']->post_title . '</h4>'; 
 						} else { 
-							echo '<h4>' . $intro['4']->post_title . '</h4>'; 
+							echo '<h4>' . $popular['4']->post_title . '</h4>'; 
 						} 
 						?>
 					</div></div>
 				</div>
 				</a><!--
-			--><a href="<?php echo get_permalink( $intro['5']->ID ); ?>"><div class="subhentry hentry">
-					<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $intro['5']->ID ), 'home-small' ); ?>
+			--><a href="<?php echo get_permalink( $popular['5']->ID ); ?>"><div class="subhentry hentry">
+					<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $popular['5']->ID ), 'home-small' ); ?>
 					<img class="lazy-load" data-src="<?php echo $image[0]; ?>" data-thumb="<?php echo $image[0]; ?>" src="http://www.crackintheroad.com/wp-content/themes/CITRForever/assets/img/blank.png" />
 					<div class="table-box"><div class="table-cell">
-					<?php if(strlen($intro['5']->post_title) >= 50) { 
-							echo '<h4 class="small">' . $intro['5']->post_title . '</h4>'; 
+					<?php if(strlen($popular['5']->post_title) >= 50) { 
+							echo '<h4 class="small">' . $popular['5']->post_title . '</h4>'; 
 						} else { 
-							echo '<h4>' . $intro['5']->post_title . '</h4>'; 
+							echo '<h4>' . $popular['5']->post_title . '</h4>'; 
 						} 
 						?>
 					</div></div>
 				</div>
 				</a><!--
 		--></div>
-		<?php $i=0; foreach($intro as $entry) { 
+		<?php $i=0; foreach($popular as $entry) { 
 			if ($i < 6) {
 				$i++;
 				continue;
@@ -357,162 +359,48 @@
 				</div>
 			</a>
 		<?php 	} ?>
-	</section><section class="about main"><!--
-	--><div class="hentry options offset1">
-				<div class="table-box"><div class="table-cell">
-				<h3>About</h3>
-				<ul>
-					<li><a href="/about">Read</a></li>
-				</ul>
-				</div></div>
-			</div><!--
-	--><div class="hentry options offset1 dropOffset">
-				<div class="table-box"><div class="table-cell">
-				<h3>People</h3>
-				<ul>
-					<li><a href="/people">Read</a></li>
-				</ul>
-				</div></div>
-			</div><!--
---></section><section class="events main">
-		<?php $i=0; 
-		$args = array( 'numberposts' => 4,'category' => 3791 );
-	    $events = get_posts( $args ); 
-	    foreach($events as $entry) {
-	    	$idtally[] = $entry->ID;
-	    };
-	    ?>
-			<!--
-	--><a href="<?php echo get_permalink( $events['0']->ID ); ?>"><div class="hentry">
-		<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $events['0']->ID ), 'home-small' ); ?>
-			<img class="lazy-load" data-src="<?php echo $image[0]; ?>" data-thumb="<?php echo $image[0]; ?>" src="http://www.crackintheroad.com/wp-content/themes/CITRForever/assets/img/blank.png" />
-			<div class="table-box"><div class="table-cell">
-					<?php if(strlen($events['0']->post_title) >= 50) { 
-							echo '<h4 class="small">' . $events['0']->post_title . '</h4>'; 
-						} else { 
-							echo '<h4>' . $events['0']->post_title . '</h4>'; 
-						} 
-						?>
-			</div></div>
-		</div></a><!--
-	--><a href="<?php echo get_permalink( $events['1']->ID ); ?>"><div class="hentry">
-		<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $events['1']->ID ), 'home-small' ); ?>
-			<img class="lazy-load" data-src="<?php echo $image[0]; ?>" data-thumb="<?php echo $image[0]; ?>" src="http://www.crackintheroad.com/wp-content/themes/CITRForever/assets/img/blank.png" />
-			<div class="table-box"><div class="table-cell">
-					<?php if(strlen($events['1']->post_title) >= 50) { 
-							echo '<h4 class="small">' . $events['1']->post_title . '</h4>'; 
-						} else { 
-							echo '<h4>' . $events['1']->post_title . '</h4>'; 
-						} 
-						?>
-			</div></div>
-		</div></a><!--
-		--><div class="hentry options">
-				<div class="table-box"><div class="table-cell">
-				<h3>Events</h3>
-				</div></div>
-			</div><!--
-	--><a href="<?php echo get_permalink( $events['2']->ID ); ?>"><div class="hentry">
-		<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $events['2']->ID ), 'home-small' ); ?>
-			<img class="lazy-load" data-src="<?php echo $image[0]; ?>" data-thumb="<?php echo $image[0]; ?>" src="http://www.crackintheroad.com/wp-content/themes/CITRForever/assets/img/blank.png" />
-			<div class="table-box"><div class="table-cell">
-					<?php if(strlen($events['2']->post_title) >= 50) { 
-							echo '<h4 class="small">' . $events['2']->post_title . '</h4>'; 
-						} else { 
-							echo '<h4>' . $events['2']->post_title . '</h4>'; 
-						} 
-						?>
-			</div></div>
-		</div></a><!--
-	--><a href="<?php echo get_permalink( $events['3']->ID ); ?>"><div class="hentry">
-		<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $events['3']->ID ), 'home-small' ); ?>
-			<img class="lazy-load" data-src="<?php echo $image[0]; ?>" data-thumb="<?php echo $image[0]; ?>" src="http://www.crackintheroad.com/wp-content/themes/CITRForever/assets/img/blank.png" />
-			<div class="table-box"><div class="table-cell">
-					<?php if(strlen($events['3']->post_title) >= 50) { 
-							echo '<h4 class="small">' . $events['3']->post_title . '</h4>'; 
-						} else { 
-							echo '<h4>' . $events['3']->post_title . '</h4>'; 
-						} 
-						?>
-			</div></div>
-		</div></a><!--
-		--></section><section class="socialMedia main"><!--
-	--><div class="hentry options clear">
-				<div class="table-box"><div class="table-cell">
-				<h3><i class="icon-mail"></i></h3>
-				<ul>
-					<li>&nbsp;</li>
-					<li><a href="mailto:site@crackintheroad.com">Email</a></li>
-				</ul>
-				</div></div>
-			</div><!--
-	--><div class="hentry options clear">
-				<div class="table-box"><div class="table-cell">
-				<h3><i class="icon-twitter"></i></h3>
-				<ul>
-					<li>&nbsp;</li>
-					<li><a href="http://www.twitter.com/crackintheroad">Twitter</a></li>
-				</ul>
-				</div></div>
-			</div><!--
-	--><div class="hentry options clear instagram">
-				<div class="table-box"><div class="table-cell">
-				<h3><i class="icon-instagram"></i></h3>
-				<ul>
-					<li>&nbsp;</li>
-					<li><a href="http://www.instagram.com/crackintheroad">Instagram</a></li>
-				</ul>
-				</div></div>
-			</div><!--
-	--><div class="hentry options clear">
-				<div class="table-box"><div class="table-cell">
-				<h3><i class="icon-facebook"></i></h3>
-				<ul>
-					<li>&nbsp;</li>
-					<li><a href="http://www.facebook.com/crackintheroad">Facebook</a></li>
-				</ul>
-				</div></div>
-			</div><!--
-	--><div class="hentry options clear">
-				<div class="table-box"><div class="table-cell">
-				<h3><i class="icon-soundcloud"></i></h3>
-				<ul>
-					<li>&nbsp;</li>
-					<li><a href="http://www.soundcloud.com/crackintheroad">Soundcloud</a></li>
-				</ul>
-				</div></div>
-			</div><!--
---></section><section id="popularSticky" class="popular"><!--
+	</section><!--
+--><section id="popularSticky" class="popular"><!--
 			--><div class="subhentry hentry options">
-				<h3>Popular</h3>
+				<h3>Featured</h3>
 				</div><!--
 				<?php $i=0; 
-					if ( function_exists('stats_get_csv')) {
-					$top_posts = stats_get_csv('postviews', 'days=30&limit=23'); 
-				    foreach($top_posts as $popular) {  
-				    if($popular['post_title'] != 'Home page' && $popular['post_title'] != 'Front Page' && $popular['post_id'] != 8901 ) { ?>
-			--><a href="<?php echo get_permalink( $popular['post_id'] ); ?>"><div class="subhentry hentry">
-					<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $popular['post_id'] ), 'home-small' ); ?>
-					<img class="lazy-load" data-src="<?php echo $image[0]; ?>" data-thumb="<?php echo $image[0]; ?>" src="http://www.crackintheroad.com/wp-content/themes/CITRForever/assets/img/blank.png" />
-					<div class="table-box"><div class="table-cell">
-					<?php if(strlen($popular['post_title']) >= 50) { 
-							echo '<h4 class="small">' . get_the_title($popular['post_id']) . '</h4>'; 
-						} else { 
-							echo '<h4>' . get_the_title($popular['post_id']) . '</h4>'; 
-						} 
+							// get sticky posts from DB
+							$sticky = get_option('sticky_posts');
+							// check if there are any
+							if (!empty($sticky)) {
+									// override the query
+									$args = array(
+											'post__in' => $sticky
+									);
+	    
+									$featuredposts = get_posts( $args ); 
+									// the loop
+									foreach($featuredposts as $featured) {
 						?>
-						<h5><?php
-							$category = get_the_category($popular['post_id']);
-							if ($category) {
-							  echo $category[0]->name;
-							}
-							?>
-						</h5>	
-					</div></div>
-				</div>
-				</a>
+							--><a href="<?php echo get_permalink( $featured->ID ); ?>"><div class="subhentry hentry">
+									<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $featured->ID ), 'home-small' ); ?>
+									<img class="lazy-load" data-src="<?php echo $image[0]; ?>" data-thumb="<?php echo $image[0]; ?>" src="http://www.crackintheroad.com/wp-content/themes/CITRForever/assets/img/blank.png" />
+									<div class="table-box"><div class="table-cell">
+									<?php if(strlen($featured->post_title) >= 50) { 
+											echo '<h4 class="small">' . $featured->post_title . '</h4>'; 
+										} else { 
+											echo '<h4>'. $featured->post_title . '</h4>'; 
+										} 
+										?>
+										<h5><?php
+											$category = get_the_category($featured->ID);
+											if ($category) {
+												echo $category[0]->name;
+											}
+											?>
+										</h5>	
+									</div></div>
+								</div>
+								</a>
 			<!--
-		<?php } } }; ?>
+		<?php
+							}						 }; ?>
 --></section><section id="archiveSticky" class="archive infinitescroll">
 	<!--
 		<?php 

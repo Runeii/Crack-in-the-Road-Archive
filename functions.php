@@ -85,7 +85,7 @@ add_image_size( 'mobile-micro', '100', '100', true );
 
 if(!is_admin())  {  
     wp_enqueue_style( 'core', get_stylesheet_uri(), false, '1.0', 'all' );
-    wp_enqueue_style( 'styles', get_stylesheet_directory_uri() . '/assets/styles/stylesheets/screen.css', array('core'), '0.7', 'all' );
+    wp_enqueue_style( 'styles', get_stylesheet_directory_uri() . '/assets/styles/stylesheets/screen.css', array('core'), '0.8', 'all' );
 
     wp_enqueue_script( 'shiv', get_stylesheet_directory_uri() . '/assets/js/shiv.js', false, '0.1', true );
     wp_enqueue_script( 'sources', get_stylesheet_directory_uri() . '/assets/js/sources.js', false, '0.2', true );
@@ -469,3 +469,71 @@ function s3_image_archives($value = false, $id, $size) {
     return false;
 }
 add_filter( 'image_downsize', 's3_image_archives', 1, 3 );
+
+function getService()
+{
+  // Creates and returns the Analytics service object.
+
+  // Load the Google API PHP Client Library.
+  require_once __DIR__ . '/classes/google-api-php-client/src/Google/autoload.php';
+
+  // Use the developers console and replace the values with your
+  // service account email, and relative location of your key file.
+  $service_account_email = 'account-1@citr-test.iam.gserviceaccount.com';
+  $key_file_location = __DIR__ . '/classes/google-api-php-client/CITR-9a6b358a6eb9.p12';
+
+  // Create and configure a new client object.
+  $client = new Google_Client();
+  $client->setApplicationName("CITR");
+  $analytics = new Google_Service_Analytics($client);
+
+  // Read the generated client_secrets.p12 key.
+  $key = file_get_contents($key_file_location);
+  $cred = new Google_Auth_AssertionCredentials(
+      $service_account_email,
+      array(Google_Service_Analytics::ANALYTICS_READONLY),
+      $key
+  );
+  $client->setAssertionCredentials($cred);
+  if($client->getAuth()->isAccessTokenExpired()) {
+    $client->getAuth()->refreshTokenWithAssertion($cred);
+  }
+
+  return $analytics;
+}
+
+function getResults(&$analytics) {
+  // Calls the Core Reporting API and queries for the number of sessions
+  // for the last seven days.
+  $optParams = array(
+      'dimensions' => 'ga:eventAction,ga:eventLabel',
+			'sort' => '-ga:totalEvents',
+			'filters' => 'ga:eventAction%3D%3Dread',
+		'max-results' => 10
+	);
+   return $analytics->data_ga->get(
+       'ga:49013870',
+       'yesterday',
+       'today',
+       'ga:totalEvents',
+		 	$optParams
+		 );
+}
+
+function updateResults(&$results) {
+	require( __DIR__ . '/../../../wp-load.php');
+	update_option('ga_popular_posts', $results->getRows());
+	echo get_option('ga_popular_posts');
+}
+
+if ( ! wp_next_scheduled( 'getPopularPosts_hook' ) ) {
+  wp_schedule_event( time(), 'daily', 'getPopularPosts_hook' );
+}
+
+add_action( 'getPopularPosts_hook', 'getPopularPosts' );
+
+function getPopularPosts() {
+	$analytics = getService();
+	$results = getResults($analytics);
+	updateResults($results);			
+}
