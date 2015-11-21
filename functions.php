@@ -426,7 +426,7 @@ add_filter( 'manage_posts_columns' , 'add_columns' );
 
 add_filter( 'wpseo_use_page_analysis', '__return_false' );
 
-/* Handy function to  have external image archives */
+/* Handy function to  have external image archives 
 function s3_image_archives($value = false, $id, $size) { 
 
     $img_url = wp_get_attachment_url($id);
@@ -469,7 +469,7 @@ function s3_image_archives($value = false, $id, $size) {
     return false;
 }
 add_filter( 'image_downsize', 's3_image_archives', 1, 3 );
-
+*/
 function getService()
 {
   // Creates and returns the Analytics service object.
