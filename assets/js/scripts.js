@@ -75,13 +75,7 @@ window.onscroll = function (event) {
 };
 
 function startLazyLoader() {
-    Echo.init({
-        offset: 100,
-        throttle: 250,
-        callback: function(e) { 
-            e.classList.add('lazy-loaded'); 
-        }
-    });
+	jQuery("img.lazy:not('.mobile')").lazyload();
 }
 
 // Ajax load

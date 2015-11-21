@@ -1819,29 +1819,29 @@ em {
   -webkit-transition: opacity 0.6s;
   -moz-transition: opacity 0.6s;
   -ms-transition: opacity 0.6s;
-  -o-transition: opacity 0.6s;
+  -o-transition: opacity 0.6 s;
   transition: opacity 0.6s;
   opacity: 0;
 }
 
-/* line 1307, ../sass/screen.scss */
+/* line 1308, ../sass/screen.scss */
 .lazy-loaded {
   opacity: 1;
 }
 
-/* line 1309, ../sass/screen.scss */
+/* line 1310, ../sass/screen.scss */
 #cover {
   -webkit-filter: blur(0px);
   filter: blur(0px);
   box-shadow: 1px 1px 1px #333;
   transition: all 0.5s;
 }
-/* line 1314, ../sass/screen.scss */
+/* line 1315, ../sass/screen.scss */
 #cover.disabled {
   display: none;
 }
 
-/* line 1319, ../sass/screen.scss */
+/* line 1320, ../sass/screen.scss */
 .invisibleMeta, #permalink, body.home #disqus_thread, .js .pagination, #ajaxRef {
   visibility: hidden;
   height: 0;

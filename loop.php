@@ -16,7 +16,7 @@
 						$image[0] = $cdn;
 					}
 				?>
-					<img class="lazy-load" data-src="<?php echo $image[0]; ?>" src="./wp-content/themes/CITRForever/assets/img/blank.png" />
+					<img class="lazy" data-original="<?php echo $image[0]; ?>" src="./wp-content/themes/CITRForever/assets/img/blank.png" />
 					<div class="table-box"><div class="table-cell">
 						<?php if(strlen($post->post_title) >= 50) { 
 							echo '<h4 class="small">' . $post->post_title . '</h4>'; 

@@ -67,13 +67,6 @@ return $count;
 
 //Scripts and styles
 if ( !is_admin() ) wp_deregister_script('jquery');
-add_filter( 'wp_default_scripts', 'dequeue_jquery_migrate' );
-
-function dequeue_jquery_migrate( &$scripts){
-	if(!is_admin()){
-		$scripts->remove( 'jquery');
-	}
-}
 
 // Custom
 add_filter('show_admin_bar', '__return_false');
