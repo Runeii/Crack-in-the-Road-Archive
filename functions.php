@@ -458,12 +458,12 @@ function getService()
   // Creates and returns the Analytics service object.
 
   // Load the Google API PHP Client Library.
-  require_once __DIR__ . '/classes/google-api-php-client/src/Google/autoload.php';
+  require_once __DIR__ . '/../classes/google-api-php-client/src/Google/autoload.php';
 
   // Use the developers console and replace the values with your
   // service account email, and relative location of your key file.
   $service_account_email = 'account-1@citr-test.iam.gserviceaccount.com';
-  $key_file_location = __DIR__ . '/classes/google-api-php-client/CITR-9a6b358a6eb9.p12';
+  $key_file_location = __DIR__ . '/../classes/google-api-php-client/CITR-9a6b358a6eb9.p12';
 
   // Create and configure a new client object.
   $client = new Google_Client();
