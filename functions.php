@@ -513,3 +513,14 @@ function getPopularPosts() {
 	$results = getResults($analytics);
 	updateResults($results);			
 }
+
+function buildEntry($postnum, $large = false, $variant) {
+	if($large == true) { 
+		$image = wp_get_attachment_image_src( get_post_thumbnail_id( $postnum->ID ), 'home-large'); 
+	} else { 
+		$image = wp_get_attachment_image_src( get_post_thumbnail_id( $postnum->ID ), 'home-small'); 
+	}
+	$permalink = get_permalink( $postnum->ID );
+	$posttitle = $postnum->post_title;
+	include(locate_template('entry-home.php'));			
+}

@@ -5,7 +5,7 @@
 				<?php 
 				$posttitle = $related['1']->post_title;
 				$image = wp_get_attachment_image_src( get_post_thumbnail_id( $related['1']->ID ), 'home-small' ); ?>
-					<img class="lazy" data-original="<?php echo $image[0]; ?>" data-thumb="<?php echo $image[0]; ?>" src="/wp-content/themes/CITRForever/assets/img/blank.png"  alt="<?php echo $posttitle; ?>"/>
+					<img class="lazy" data-original="<?php echo $image[0]; ?>" src="/wp-content/themes/CITRForever/assets/img/blank.png"  alt="<?php echo $posttitle; ?>"/>
 					<div class="table-box"><div class="table-cell">
 					<?php 
 					if(strlen($posttitle) >= 50) { 
@@ -33,7 +33,7 @@
 		--><div class="hentry column"><!--
 			--><a href="<?php echo get_permalink($related['2']->ID); ?>"><div class="subhentry hentry">
 				<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $related['2']->ID ), 'home-small' ); ?>
-					<img class="lazy" data-original="<?php echo $image[0]; ?>" data-thumb="<?php echo $image[0]; ?>" src="/wp-content/themes/CITRForever/assets/img/blank.png"  alt="<?php echo $posttitle; ?>"/>
+					<img class="lazy" data-original="<?php echo $image[0]; ?>" src="/wp-content/themes/CITRForever/assets/img/blank.png"  alt="<?php echo $posttitle; ?>"/>
 					<div class="table-box"><div class="table-cell">
 					<?php 
 					$posttitle = $related['2']->post_title;
@@ -54,7 +54,7 @@
 			</div></a><!--
 			--><a href="<?php echo get_permalink($related['3']->ID); ?>"><div class="subhentry hentry">
 				<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $related['3']->ID ), 'home-small' ); ?>
-					<img class="lazy" data-original="<?php echo $image[0]; ?>" data-thumb="<?php echo $image[0]; ?>" src="/wp-content/themes/CITRForever/assets/img/blank.png"  alt="<?php echo $posttitle; ?>"/>
+					<img class="lazy" data-original="<?php echo $image[0]; ?>" src="/wp-content/themes/CITRForever/assets/img/blank.png"  alt="<?php echo $posttitle; ?>"/>
 					<div class="table-box"><div class="table-cell">
 					<?php 
 					$posttitle = $related['3']->post_title;
@@ -76,7 +76,7 @@
 		--></div><!--
 	--><a href="<?php echo get_permalink($related['0']->ID); ?>"><div class="hentry wide tall">
 				<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $related['0']->ID ), 'home-large' ); ?>
-					<img class="lazy" data-original="<?php echo $image[0]; ?>" data-thumb="<?php echo $image[0]; ?>" src="/wp-content/themes/CITRForever/assets/img/blank.png"  alt="<?php echo $posttitle; ?>"/>
+					<img class="lazy" data-original="<?php echo $image[0]; ?>" src="/wp-content/themes/CITRForever/assets/img/blank.png"  alt="<?php echo $posttitle; ?>"/>
 					<div class="table-box"><div class="table-cell">
 					<?php 
 					$posttitle = $related['0']->post_title;
@@ -98,7 +98,7 @@
 		--><div class="hentry column smallscreen"><!--
 		--><a href="<?php echo get_permalink($related['4']->ID); ?>"><div class="subhentry hentry">
 				<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $related['4']->ID ), 'home-small' ); ?>
-					<img class="lazy" data-original="<?php echo $image[0]; ?>" data-thumb="<?php echo $image[0]; ?>" src="/wp-content/themes/CITRForever/assets/img/blank.png"  alt="<?php echo $posttitle; ?>"/>
+					<img class="lazy" data-original="<?php echo $image[0]; ?>" src="/wp-content/themes/CITRForever/assets/img/blank.png"  alt="<?php echo $posttitle; ?>"/>
 					<div class="table-box"><div class="table-cell">
 					<?php 
 					$posttitle = $related['4']->post_title;
@@ -119,7 +119,7 @@
 			</div></a><!--
 			--><a href="<?php echo get_permalink($related['5']->ID); ?>"><div class="subhentry hentry">
 				<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $related['5']->ID ), 'home-small' ); ?>
-					<img class="lazy" data-original="<?php echo $image[0]; ?>" data-thumb="<?php echo $image[0]; ?>" src="/wp-content/themes/CITRForever/assets/img/blank.png"  alt="<?php echo $posttitle; ?>"/>
+					<img class="lazy" data-original="<?php echo $image[0]; ?>" src="/wp-content/themes/CITRForever/assets/img/blank.png"  alt="<?php echo $posttitle; ?>"/>
 					<div class="table-box"><div class="table-cell">
 					<?php 
 					$posttitle = $related['5']->post_title;
@@ -145,7 +145,7 @@
 				<?php 
 					$posttitle = $morecategory['1']->post_title;
 					$image = wp_get_attachment_image_src( get_post_thumbnail_id( $morecategory['1']->ID ), 'home-small' ); ?>
-					<img class="lazy" data-original="<?php echo $image[0]; ?>" data-thumb="<?php echo $image[0]; ?>" src="/wp-content/themes/CITRForever/assets/img/blank.png"  alt="<?php echo $posttitle; ?>"/>
+					<img class="lazy" data-original="<?php echo $image[0]; ?>" src="/wp-content/themes/CITRForever/assets/img/blank.png"  alt="<?php echo $posttitle; ?>"/>
 					<div class="table-box"><div class="table-cell">
 					<?php 
 					if(strlen($posttitle) >= 50) { 
@@ -167,7 +167,7 @@
 				<?php 
 					$posttitle = $morecategory['2']->post_title;
 					$image = wp_get_attachment_image_src( get_post_thumbnail_id( $morecategory['2']->ID ), 'home-small' ); ?>
-					<img class="lazy" data-original="<?php echo $image[0]; ?>" data-thumb="<?php echo $image[0]; ?>" src="/wp-content/themes/CITRForever/assets/img/blank.png"  alt="<?php echo $posttitle; ?>"/>
+					<img class="lazy" data-original="<?php echo $image[0]; ?>" src="/wp-content/themes/CITRForever/assets/img/blank.png"  alt="<?php echo $posttitle; ?>"/>
 					<div class="table-box"><div class="table-cell">
 					<?php 
 					if(strlen($posttitle) >= 50) { 
@@ -191,7 +191,7 @@
 				<?php 
 					$posttitle = $morecategory['3']->post_title;
 					$image = wp_get_attachment_image_src( get_post_thumbnail_id( $morecategory['3']->ID ), 'home-small' ); ?>
-					<img class="lazy" data-original="<?php echo $image[0]; ?>" data-thumb="<?php echo $image[0]; ?>" src="/wp-content/themes/CITRForever/assets/img/blank.png"  alt="<?php echo $posttitle; ?>"/>
+					<img class="lazy" data-original="<?php echo $image[0]; ?>" src="/wp-content/themes/CITRForever/assets/img/blank.png"  alt="<?php echo $posttitle; ?>"/>
 					<div class="table-box"><div class="table-cell">
 					<?php 
 					if(strlen($posttitle) >= 50) { 
@@ -213,7 +213,7 @@
 				<?php 
 					$posttitle = $morecategory['4']->post_title;
 					$image = wp_get_attachment_image_src( get_post_thumbnail_id( $morecategory['4']->ID ), 'home-small' ); ?>
-					<img class="lazy" data-original="<?php echo $image[0]; ?>" data-thumb="<?php echo $image[0]; ?>" src="/wp-content/themes/CITRForever/assets/img/blank.png"  alt="<?php echo $posttitle; ?>"/>
+					<img class="lazy" data-original="<?php echo $image[0]; ?>" src="/wp-content/themes/CITRForever/assets/img/blank.png"  alt="<?php echo $posttitle; ?>"/>
 					<div class="table-box"><div class="table-cell">
 					<?php 
 					if(strlen($posttitle) >= 50) { 
@@ -236,7 +236,7 @@
 				<?php 
 					$posttitle = $morecategory['5']->post_title;
 					$image = wp_get_attachment_image_src( get_post_thumbnail_id( $morecategory['5']->ID ), 'home-small' ); ?>
-					<img class="lazy" data-original="<?php echo $image[0]; ?>" data-thumb="<?php echo $image[0]; ?>" src="/wp-content/themes/CITRForever/assets/img/blank.png"  alt="<?php echo $posttitle; ?>"/>
+					<img class="lazy" data-original="<?php echo $image[0]; ?>" src="/wp-content/themes/CITRForever/assets/img/blank.png"  alt="<?php echo $posttitle; ?>"/>
 					<div class="table-box"><div class="table-cell">
 					<?php 
 					if(strlen($posttitle) >= 50) { 
@@ -263,7 +263,7 @@
 				<?php 
 					$posttitle = $morecategory['0']->post_title;
 					$image = wp_get_attachment_image_src( get_post_thumbnail_id( $morecategory['0']->ID ), 'home-large' ); ?>
-					<img class="lazy" data-original="<?php echo $image[0]; ?>" data-thumb="<?php echo $image[0]; ?>" src="/wp-content/themes/CITRForever/assets/img/blank.png"  alt="<?php echo $posttitle; ?>"/>
+					<img class="lazy" data-original="<?php echo $image[0]; ?>" src="/wp-content/themes/CITRForever/assets/img/blank.png"  alt="<?php echo $posttitle; ?>"/>
 					<div class="table-box"><div class="table-cell">
 					<?php 
 					if(strlen($posttitle) >= 50) { 

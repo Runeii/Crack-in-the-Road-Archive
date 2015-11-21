@@ -511,13 +511,11 @@ p {
 			&:hover {
 				opacity:0;
 			}
-			&:not(.lazy-load) {
-				-webkit-transition:all 0.25s ease-in;
-				-ms-transition:all 0.25s ease-in;
-				-moz-transition:all 0.25s ease-in;
-				-o-transition:all 0.25s ease-in;
-				transition:all 0.25s ease-in;
-			}
+			-webkit-transition:all 0.25s ease-in;
+			-ms-transition:all 0.25s ease-in;
+			-moz-transition:all 0.25s ease-in;
+			-o-transition:all 0.25s ease-in;
+			transition:all 0.25s ease-in;
 		}
 		h4 {
 			display: inline-block;
@@ -1296,17 +1294,6 @@ body.single #content.offset {
 }
 
 // Script Script
-.lazy-load, .lazy-load {
-  -webkit-transition: opacity 0.6s;
-  -moz-transition: opacity 0.6s;
-  -ms-transition: opacity 0.6s;
-  -o-transition: opacity 0.6
-		s;
-  transition: opacity 0.6s;
-  opacity: 0;
-}
-.lazy-loaded { opacity: 1; }
-
 #cover {
 	-webkit-filter:blur(0px);
 	filter:blur(0px);

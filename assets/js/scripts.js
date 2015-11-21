@@ -94,8 +94,11 @@ new Pjax({
             oldEl.classList.remove('loaded');
             oldEl.classList.add('frozen');
             if(!newEl.classList.contains('disabled')){
-                oldEl.style.backgroundImage = "url('" + newEl.getAttribute('data-thumb') + "')";
-                console.log(oldEl.style.backgroundImage);
+								if(newEl.hasAttribute("data-thumb")) {
+                	oldEl.style.backgroundImage = "url('" + newEl.getAttribute('data-thumb') + "')";
+								} else if (newEl.hasAttribute("data-original")) {
+                	oldEl.style.backgroundImage = "url('" + newEl.getAttribute('data-original') + "')";
+								}
                 oldEl.setAttribute('data-highRes', newEl.style.backgroundImage.slice(4, -1));
                 oldEl.classList.remove('disabled');
             } else {
@@ -113,12 +116,6 @@ new Pjax({
 }
 
 document.addEventListener("pjax:send", function() {        
-        /* Run immediately
-        if(this.hasAttribute("data-thumb")) {
-            cover.style.backgroundImage = 'url(' + l.getAttribute("data-thumb") + ')';
-        } else if (l.getElementsB;yTagName('img')[0]) {
-            cover.style.backgroundImage = 'url(' + l.getElementsByTagName('img')[0].getAttribute("data-thumb") + ')';
-        } */
         if(stickyOn === true) {
             popular.classList.remove('stuck');
             archives.classList.remove('stuck'); 
@@ -737,23 +734,3 @@ function captureRelease() {
     }
 }
 ////////////////
-
-
-var trigger = document.getElementById('hamburger'),
-    isClosed = true;
-
-trigger.addEventListener('click', function(event) {  
-    burgerTime();
-}, false);
-
-function burgerTime() {
-  if (isClosed == true) {
-    trigger.classList.remove('is-closed');
-    trigger.classList.add('is-open');
-    isClosed = false;
-  } else {
-    trigger.classList.remove('is-open');
-    trigger.classList.add('is-closed');
-    isClosed = true;
-  }
-}
