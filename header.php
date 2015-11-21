@@ -20,29 +20,7 @@
 </script>
 </head>
 <body <?php body_class(); ?>>
-<div id="obscure"></div>
 <?php get_template_part('cover') ?>
-
-<script type="text/javascript">
-        s = window.pageYOffset;
-        windowWidth = window.innerWidth;
-        windowHeight = window.innerHeight;
-		body = document.body;
-		cover = document.getElementById("cover");
-
-        if (windowWidth >= 645) { 
-            // Cover setup //
-            //Only enable coverFocus immediately if we're at the top
-            if(s < windowHeight) {
-                body.classList.add('coverFocus');
-            }
-            body.classList.add('coverActive');
-            
-            // Cover size        
-            document.getElementById("cover").style.height = windowHeight + "px";
-            body.style.minHeight = (windowHeight * 2) + 'px';
-        }
-</script>
 
 <?php get_template_part('header-menu') ?>
 

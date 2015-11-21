@@ -14,7 +14,6 @@ poppedState = false;
 stickyState = false;
 stickyOn = false;
 infiniteScrollState = false;
-disqusEnabled = false;
 window.playing = false;
 round = 0;
 // Ajax variables
@@ -57,10 +56,6 @@ if(document.querySelector('.infinitescroll') && document.querySelector('.paginat
     infiniteScrollState = true;
 } 
 
-if(body.classList.contains('single') && disqusEnabled === false) {
-  startDisqus();
-  disqusEnabled = true;
-};
 
 //Window resize actions
 window.onresize = function() {
@@ -75,30 +70,6 @@ window.onscroll = function (event) {
         }
         if(relatedPane !== null) {
             captureRelease();
-        }
-    }
-};
-
-function startDisqus() {
-    if(body.classList.contains('single')) {
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'crackintheroad'; // Required - Replace example with your forum shortname
-        if(window.DISQUS) { 
-            DISQUS.reset({
-                reload: true,
-                config: function () {  
-                    this.page.identifier = document.getElementById('postID').innerHTML + ' ' + window.location.origin + window.location.pathname;  
-                    this.page.url = window.location.origin + window.location.pathname;
-                }
-            });
-        } else { 
-            /* * * DON'T EDIT BELOW THIS LINE * * */
-            (function() {
-                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-            })();
-            var disqusEnabled = true;
         }
     }
 };
@@ -469,7 +440,6 @@ function reset() {
     }
     startLazyLoader();
     pageProgressing = false;
-    startDisqus();
 }
 
 function scrollTo(element, to, duration, ajaxCallback) {

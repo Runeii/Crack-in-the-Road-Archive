@@ -16,11 +16,6 @@ This bit don't mean shit
 </footer>
 </div>
 <div id="audioIndicator"></div>
-<div id="pageTitle"></div>
-<div id="permalink">
-<?php 
-  $current_url = ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
- echo $current_url;?></div>
 <?php wp_footer(); ?>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

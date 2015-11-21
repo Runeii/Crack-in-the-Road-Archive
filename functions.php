@@ -275,23 +275,6 @@ function gallery_shortcode_custom($attr) {
     return $output;
 }
 
-add_action( 'wp_head', 'tgm_tame_disqus_comments' );
-/**
- * Tames DISQUS comments so that it only outputs JS on specified
- * pages in the site.
- */
-function tgm_tame_disqus_comments() {
- 
-    /** If we are viewing a single post, we need the code, so return early */
-    if ( is_singular( 'post' ) )
-        return;
-        
-    /** Tame Disqus from outputting JS on pages where comments are not available */
-    remove_action( 'loop_end', 'dsq_loop_end' );
-    remove_action( 'wp_footer', 'dsq_output_footer_comment_js' );
- 
-}
-
 //Admin
 // using Fieldmanager for a slideshow - any number of slides, with any number of related links
 add_action( 'init', function() {

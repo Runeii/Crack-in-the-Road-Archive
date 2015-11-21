@@ -10,10 +10,6 @@ if ( get_post_gallery() || $iNumberOfmatches > 0 || $GLOBALS['noCover'] == true)
 <?php } ?>
 <?php get_template_part( 'entry' ); ?>
 <?php if ( ! post_password_required() ) comments_template( '', true ); ?>
-<div class="invisibleMeta">
-<div id="postID"><?php echo $post->ID; ?></div>
-<div id="postGUID"><?php echo $post->guid ?></div>
-</div>
 </section>
 <?php 
 $category = get_the_category();

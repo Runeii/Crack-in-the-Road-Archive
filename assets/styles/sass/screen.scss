@@ -155,49 +155,17 @@ p {
 		text-transform:uppercase;
 		margin-top:0.5rem * $base-line-height;
 	}
-	.pageDesc {
+	#pageDesc {
 		margin-top:1rem * $base-line-height;
 		font-style:italic;
+		position: absolute;
+    bottom: 1.65rem;
+    margin-left: 1.65rem;
+    left: -200%;
+    text-transform: uppercase;
 	}
 }
 
-/* 07/07: hidden
-.coverActive {
-	#cover {
-		display:block;
-		background-color:black;
-	}
-	#header {
-		z-index:9999;
-	}
-	#headerBg {
-		position:fixed;
-		height:3rem * $base-line-height;
-		top:0;
-		left:0;
-		width:100%;
-		background-color:transparent;
-		z-index:999;
-		display:block;
-	}
-}
-.coverFocus {
-	#header {
-		border-color:transparent;
-		color: #FFF;
-		text-shadow: 1px 1px 1px #000;
-		.title, .navigation {
-			background-color:transparent;
-		}
-	}
-	#headerBg {
-		background-color:$altBgr;
-	}
-	.search-field {
-		text-shadow:1px 1px 1px $bodyText;
-	}
-}
-*/
 .coverActive {
 	#cover {
 		display:block;
@@ -540,9 +508,15 @@ p {
 			left:0;
 			right:0;
 			bottom:0;
-			transition:all 0.25s ease-in;
 			&:hover {
 				opacity:0;
+			}
+			&:not(.lazy-load) {
+				-webkit-transition:all 0.25s ease-in;
+				-ms-transition:all 0.25s ease-in;
+				-moz-transition:all 0.25s ease-in;
+				-o-transition:all 0.25s ease-in;
+				transition:all 0.25s ease-in;
 			}
 		}
 		h4 {
@@ -628,16 +602,6 @@ body.single, body.page, body.error404 {
 				opacity:1;
 			}
 		}
-	}
-	#disqus_thread {
-		margin: 0 auto -70px;
-		position: relative;
-		z-index: 1;
-		width: 19rem * $base-line-height;
-	}
-	// Error sometimes throws duplicate comments 
-	#dsq-content {
-		display: none;
 	}
 	.entry-content {
 		position:relative;
@@ -1043,14 +1007,8 @@ body.single #content.offset {
 
 }
 @media (max-width: 723px) {
-	.pace {
-		display:none !important;
-		visibility: hidden !important;
-	}
 	body.single, body.page, body.error404 {
-		#disqus_thread { 
-			display:none;
-		} 
+
 		article.hentry {
 			width:100%;
 			padding: 0 (0.5rem * $base-line-height) 2rem * $base-line-height;
@@ -1338,50 +1296,16 @@ body.single #content.offset {
 }
 
 // Script Script
-.lazy-load, .lazy-loaded, .lazy-load {
-  -webkit-transition: opacity 0.5s;
-  -moz-transition: opacity 0.5s;
-  -ms-transition: opacity 0.5s;
-  -o-transition: opacity 0.5s;
-  transition: opacity 0.5s;
+.lazy-load, .lazy-load {
+  -webkit-transition: opacity 0.6s;
+  -moz-transition: opacity 0.6s;
+  -ms-transition: opacity 0.6s;
+  -o-transition: opacity 0.6s;
+  transition: opacity 0.6s;
   opacity: 0;
 }
-.pace .pace-progress {
-  background: $primary;
-  position: fixed;
-  z-index: 2000;
-  top: 0;
-  left: 0;
-  height: 0.25rem * $base-line-height;
+.lazy-loaded { opacity: 1; }
 
-  -webkit-transition: width 1s;
-  -moz-transition: width 1s;
-  -o-transition: width 1s;
-  transition: width 1s;
-}
-
-.pace-inactive {
-  display: none;
-}
-.lazy-loaded, .lazy-loaded { opacity: 1; }
-
-
-#obscure {
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background-color: rgb(0, 0, 0);
-	opacity: 0;
-	z-index: 1001;
-	display:none;
-	transition:opacity 0.3s;
-	&.on {
-		display:block;
-		opacity:0.8;
-	}
-}
 #cover {
 	-webkit-filter:blur(0px);
 	filter:blur(0px);

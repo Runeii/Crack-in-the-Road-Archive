@@ -86,3 +86,23 @@ else {
     <?php }  ?>
 </ul>
 </div>
+<script type="text/javascript">
+        s = window.pageYOffset;
+        windowWidth = window.innerWidth;
+        windowHeight = window.innerHeight;
+		body = document.body;
+		cover = document.getElementById("cover");
+
+        if (windowWidth >= 645) { 
+            // Cover setup //
+            //Only enable coverFocus immediately if we're at the top
+            if(s < windowHeight) {
+                body.classList.add('coverFocus');
+            }
+            body.classList.add('coverActive');
+            
+            // Cover size        
+            document.getElementById("cover").style.height = windowHeight + "px";
+            body.style.minHeight = (windowHeight * 2) + 'px';
+        }
+</script>
