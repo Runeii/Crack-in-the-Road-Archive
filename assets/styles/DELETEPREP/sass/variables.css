@@ -1,0 +1,79 @@
+/*
+Error: Undefined mixin 'box-sizing'.
+        on line 111 of /Users/Andrew/Documents/Web Dev/Servers/citr/wp-content/themes/CITR/assets/styles/sass/sass/variables.scss, in `box-sizing'
+        from line 111 of /Users/Andrew/Documents/Web Dev/Servers/citr/wp-content/themes/CITR/assets/styles/sass/sass/variables.scss
+
+106: 	font-stretch: normal;
+107: 	unicode-range: U+0020-2044;
+108: }
+109: // Apply a natural box layout model to all elements
+110: * {
+111: 	@include box-sizing(border-box);
+112: 	-webkit-font-smoothing:antialiased;
+113: 	-moz-osx-font-smoothing: grayscale
+114: }
+115: 
+116: // =Variables
+
+Backtrace:
+/Users/Andrew/Documents/Web Dev/Servers/citr/wp-content/themes/CITR/assets/styles/sass/sass/variables.scss:111:in `box-sizing'
+/Users/Andrew/Documents/Web Dev/Servers/citr/wp-content/themes/CITR/assets/styles/sass/sass/variables.scss:111
+/usr/local/rvm/gems/ruby-2.0.0-p643/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:348:in `block in visit_mixin'
+/usr/local/rvm/gems/ruby-2.0.0-p643/gems/sass-3.4.13/lib/sass/stack.rb:98:in `block in with_mixin'
+/usr/local/rvm/gems/ruby-2.0.0-p643/gems/sass-3.4.13/lib/sass/stack.rb:115:in `with_frame'
+/usr/local/rvm/gems/ruby-2.0.0-p643/gems/sass-3.4.13/lib/sass/stack.rb:98:in `with_mixin'
+/usr/local/rvm/gems/ruby-2.0.0-p643/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:346:in `visit_mixin'
+/usr/local/rvm/gems/ruby-2.0.0-p643/gems/sass-3.4.13/lib/sass/tree/visitors/base.rb:36:in `visit'
+/usr/local/rvm/gems/ruby-2.0.0-p643/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/usr/local/rvm/gems/ruby-2.0.0-p643/gems/sass-3.4.13/lib/sass/stack.rb:79:in `block in with_base'
+/usr/local/rvm/gems/ruby-2.0.0-p643/gems/sass-3.4.13/lib/sass/stack.rb:115:in `with_frame'
+/usr/local/rvm/gems/ruby-2.0.0-p643/gems/sass-3.4.13/lib/sass/stack.rb:79:in `with_base'
+/usr/local/rvm/gems/ruby-2.0.0-p643/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/usr/local/rvm/gems/ruby-2.0.0-p643/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:430:in `block (2 levels) in visit_rule'
+/usr/local/rvm/gems/ruby-2.0.0-p643/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:430:in `map'
+/usr/local/rvm/gems/ruby-2.0.0-p643/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:430:in `block in visit_rule'
+/usr/local/rvm/gems/ruby-2.0.0-p643/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/usr/local/rvm/gems/ruby-2.0.0-p643/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:428:in `visit_rule'
+/usr/local/rvm/gems/ruby-2.0.0-p643/gems/sass-3.4.13/lib/sass/tree/visitors/base.rb:36:in `visit'
+/usr/local/rvm/gems/ruby-2.0.0-p643/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/usr/local/rvm/gems/ruby-2.0.0-p643/gems/sass-3.4.13/lib/sass/stack.rb:79:in `block in with_base'
+/usr/local/rvm/gems/ruby-2.0.0-p643/gems/sass-3.4.13/lib/sass/stack.rb:115:in `with_frame'
+/usr/local/rvm/gems/ruby-2.0.0-p643/gems/sass-3.4.13/lib/sass/stack.rb:79:in `with_base'
+/usr/local/rvm/gems/ruby-2.0.0-p643/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/usr/local/rvm/gems/ruby-2.0.0-p643/gems/sass-3.4.13/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/usr/local/rvm/gems/ruby-2.0.0-p643/gems/sass-3.4.13/lib/sass/tree/visitors/base.rb:52:in `map'
+/usr/local/rvm/gems/ruby-2.0.0-p643/gems/sass-3.4.13/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/usr/local/rvm/gems/ruby-2.0.0-p643/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
+/usr/local/rvm/gems/ruby-2.0.0-p643/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/usr/local/rvm/gems/ruby-2.0.0-p643/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+/usr/local/rvm/gems/ruby-2.0.0-p643/gems/sass-3.4.13/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/usr/local/rvm/gems/ruby-2.0.0-p643/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
+/usr/local/rvm/gems/ruby-2.0.0-p643/gems/sass-3.4.13/lib/sass/tree/visitors/base.rb:36:in `visit'
+/usr/local/rvm/gems/ruby-2.0.0-p643/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:157:in `visit'
+/usr/local/rvm/gems/ruby-2.0.0-p643/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:8:in `visit'
+/usr/local/rvm/gems/ruby-2.0.0-p643/gems/sass-3.4.13/lib/sass/tree/root_node.rb:36:in `css_tree'
+/usr/local/rvm/gems/ruby-2.0.0-p643/gems/sass-3.4.13/lib/sass/tree/root_node.rb:20:in `render'
+/usr/local/rvm/gems/ruby-2.0.0-p643/gems/sass-3.4.13/lib/sass/engine.rb:268:in `render'
+/usr/local/rvm/gems/ruby-2.0.0-p643/gems/sass-3.4.13/lib/sass/plugin/compiler.rb:492:in `update_stylesheet'
+/usr/local/rvm/gems/ruby-2.0.0-p643/gems/sass-3.4.13/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/usr/local/rvm/gems/ruby-2.0.0-p643/gems/sass-3.4.13/lib/sass/plugin/compiler.rb:209:in `each'
+/usr/local/rvm/gems/ruby-2.0.0-p643/gems/sass-3.4.13/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/usr/local/rvm/gems/ruby-2.0.0-p643/gems/sass-3.4.13/lib/sass/plugin/compiler.rb:293:in `watch'
+/usr/local/rvm/gems/ruby-2.0.0-p643/gems/compass-1.0.3/lib/compass/sass_compiler.rb:46:in `watch!'
+/usr/local/rvm/gems/ruby-2.0.0-p643/gems/compass-1.0.3/lib/compass/commands/watch_project.rb:41:in `perform'
+/usr/local/rvm/gems/ruby-2.0.0-p643/gems/compass-1.0.3/lib/compass/commands/base.rb:18:in `execute'
+/usr/local/rvm/gems/ruby-2.0.0-p643/gems/compass-1.0.3/lib/compass/commands/project_base.rb:19:in `execute'
+/usr/local/rvm/gems/ruby-2.0.0-p643/gems/compass-1.0.3/lib/compass/exec/sub_command_ui.rb:43:in `perform!'
+/usr/local/rvm/gems/ruby-2.0.0-p643/gems/compass-1.0.3/lib/compass/exec/sub_command_ui.rb:15:in `run!'
+/usr/local/rvm/gems/ruby-2.0.0-p643/gems/compass-1.0.3/bin/compass:30:in `block in <top (required)>'
+/usr/local/rvm/gems/ruby-2.0.0-p643/gems/compass-1.0.3/bin/compass:44:in `call'
+/usr/local/rvm/gems/ruby-2.0.0-p643/gems/compass-1.0.3/bin/compass:44:in `<top (required)>'
+/usr/local/rvm/gems/ruby-2.0.0-p643/bin/compass:23:in `load'
+/usr/local/rvm/gems/ruby-2.0.0-p643/bin/compass:23:in `<main>'
+/usr/local/rvm/gems/ruby-2.0.0-p643/bin/ruby_executable_hooks:15:in `eval'
+/usr/local/rvm/gems/ruby-2.0.0-p643/bin/ruby_executable_hooks:15:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Undefined mixin 'box-sizing'.\A         on line 111 of /Users/Andrew/Documents/Web Dev/Servers/citr/wp-content/themes/CITR/assets/styles/sass/sass/variables.scss, in `box-sizing'\A         from line 111 of /Users/Andrew/Documents/Web Dev/Servers/citr/wp-content/themes/CITR/assets/styles/sass/sass/variables.scss\A \A 106: 	font-stretch: normal;\A 107: 	unicode-range: U+0020-2044;\A 108: }\A 109: // Apply a natural box layout model to all elements\A 110: * {\A 111: 	@include box-sizing(border-box);\A 112: 	-webkit-font-smoothing:antialiased;\A 113: 	-moz-osx-font-smoothing: grayscale\A 114: }\A 115: \A 116: // =Variables"; }
