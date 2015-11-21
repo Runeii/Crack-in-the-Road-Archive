@@ -46,9 +46,9 @@ if(typeof domReadyOnce === 'undefined') {
     domReadyOnce = true;
 } 
 
-if(document.getElementById("popularSticky")) {
+if(document.getElementById("featuredSticky")) {
     stickyOn = true;
-    popular = document.getElementById("popularSticky");
+    popular = document.getElementById("featuredSticky");
     archives = document.getElementById("archiveSticky");
     archiveOffset = archives.offsetTop;   
 }
@@ -75,7 +75,14 @@ window.onscroll = function (event) {
 };
 
 function startLazyLoader() {
-	jQuery("img.lazy:not('.mobile')").lazyload();
+	jQuery("img.lazy").lazyload({
+    effect : "fadeIn"
+});
+	if(jQuery('#featuredSticky').length) {
+		jQuery("img.lazy").lazyload({
+			 container: jQuery("#featuredSticky")
+		});
+	}
 }
 
 // Ajax load
@@ -156,9 +163,9 @@ function resize()
         var s = window.pageYOffset;
         window.windowHeight = window.innerHeight;
         window.windowWidth = window.innerWidth;
-        if(document.getElementById("popularSticky")) {
+        if(document.getElementById("featuredSticky")) {
             if(typeof archives === 'undefined') { 
-                popular = document.getElementById("popularSticky");
+                popular = document.getElementById("featuredSticky");
                 archives = document.getElementById("archiveSticky");
                 stickyOn = true;
             }
@@ -399,8 +406,8 @@ function reset() {
     processingAjax = false;
     cover = document.getElementById('cover');
     classList = document.body.classList;
-    if(document.getElementById("popularSticky")) {
-        popular = document.getElementById("popularSticky");
+    if(document.getElementById("featuredSticky")) {
+        popular = document.getElementById("featuredSticky");
         archives = document.getElementById("archiveSticky");
         stickyOn = true;
         window.archiveOffset = archives.offsetTop;   

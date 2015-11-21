@@ -1,5 +1,5 @@
 --><div class="subhentry hentry <?php if($large == true) { echo 'wide tall'; } ?>">
-		<a href="<?php $permalink; ?>">
+		<a href="<?php echo $permalink; ?>">
 			<img class="lazy" data-original="<?php echo $image[0]; ?>" src="http://www.crackintheroad.com/wp-content/themes/CITR/assets/img/blank.png" />
 			<div class="table-box">
 				<div class="table-cell">

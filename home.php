@@ -95,7 +95,7 @@
 					<?php	buildEntry($popular['5']); ?>
 			--></div>
 	</section><!--
---><section id="popularSticky" class="popular"><!--
+--><section id="featuredSticky" class="popular"><!--
 			--><div class="subhentry hentry options">
 				<h3>Featured</h3>
 				</div><!--
@@ -124,6 +124,6 @@
 		if(in_array($post->ID, $idtally)) { 
 		} else { buildEntry($post, false, 'archive');  }; $i++; endwhile; ?>
 --></section>
-<?php get_template_part( 'nav', 'below' ); ?>
+<?php // get_template_part( 'nav', 'below' ); ?>
 
 <?php get_footer(); ?>
